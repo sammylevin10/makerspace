@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Service Order Mailer</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <h1>MakerSpace Service Order Mailer</h1>
+        <p>Enter the customer's information, then click the corresponding button to the type of email you'd like to send</p>
+        <hr>
+        <p>Customer's NYU ID</p>
+        <input type="text" id="netid"></input>
+        <p>Customer's Name</p>
+        <input type="text" id="name"></input>
+        <p>Cost of Print (optional)</p>
+        <input type="text" id="cost"></input>
+        </br></br>
+        <hr>
+        </br>
+        <button onclick="option1()">Customer forgot to attach print file</button>
+        </br></br>
+        <button onclick="option2()">Customer can pick up their print</button>
+        </br></br>
+        <button onclick="option3()">Customer's print cost was calculated</button>
+
+        <p id="demo"></p>
+
+        <script>
+          function getInfo() {
+            var input = document.getElementById('netid');
+            email = input.value+"@nyu.edu";
+            var input = document.getElementById('name');
+            name = input.value;
+            var input = document.getElementById('cost');
+            cost = input.value;
+            var info = [email, name, cost];
+            return info;
+          }
+          function option1() {
+            var info = getInfo();
+            window.location.href = "mailto:" + info[0] +
+            "?bcc=makerspacetas@email.com&subject=Your%20MakerSpace%20Service%20Order&body=Dear%20" + info[1] + "%0D%0A%0D%0A" +
+            "We%20received%20your%20MakerSpace%203D%20printing%20service%20order.%20You%20did%20not%20attach%20your%20print%20file.";
+          }
+          function option2() {
+            var info = getInfo();
+            window.location.href = "mailto:" + info[0] +
+            "?bcc=makerspacetas@email.com&subject=Your%20MakerSpace%20Service%20Order&body=Dear%20" + info[1] + "%0D%0A%0D%0A" +
+            "We%20received%20your%20MakerSpace%203D%20printing%20service%20order.%20Your%20print%20is%20ready%20to%20be%20picked%20up%20at%20a%20location.";
+          }
+          function option3() {
+            var info = getInfo();
+            window.location.href = "mailto:" + info[0] +
+            "?bcc=makerspacetas@email.com&subject=Your%20MakerSpace%20Service%20Order&body=Dear%20" + info[1] + "%0D%0A%0D%0A" +
+            "We%20received%20your%20MakerSpace%203D%20printing%20service%20order.%20The%20cost%20of%20your%20print%20is%20%24" + info[2];
+          }
+        </script>
+    </body>
+</html>
