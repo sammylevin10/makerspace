@@ -5,18 +5,30 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <h1>MakerSpace Service Order Mailer</h1>
-        <p>Enter the customer's information, then click the corresponding button to the type of email you'd like to send</p>
+        <div id = "titlebar">
+          <h1>MakerSpace Service Order Mailer</h1>
+        </div>
         <hr>
-        <p>Customer's NYU ID</p>
-        <input type="text" id="netid"></input>
-        <p>Customer's Name</p>
-        <input type="text" id="name"></input>
-        <p>Cost of Print (optional)</p>
-        <input type="text" id="cost"></input>
+        <h3>First, enter the customer's information.</h3>
+        <div id = "infoboxes-wrapper">
+          <div id = "infoboxes">
+            <div class = "infobox">
+              <p>Customer's NYU ID</p>
+              <input type="text" id="netid"></input>
+            </div>
+            <div class = "infobox">
+              <p>Customer's Name</p>
+              <input type="text" id="name"></input>
+            </div>
+            <div class = "infobox">
+              <p>Cost of Print (optional)</p>
+              <input type="text" id="cost"></input>
+            </div>
+          </div>
+        </div>
         </br></br>
         <hr>
-        </br>
+        <h3>Next, select the type of email to generate.</h3>
         <button onclick="option1()">Customer forgot to attach print file</button>
         </br></br>
         <button onclick="option2()">Customer can pick up their print</button>

@@ -1,4 +1,6 @@
 body {
+  padding: 0px;
+  margin: 0px;
   background-color: #ddd4ff;
   color:black;
   font-family: Helvetica, sans-serif;
@@ -8,4 +10,25 @@ body {
 
 button {
   font-size: 1.3em;
+}
+
+#titlebar {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #6932a8;
+  color:white;
+}
+
+#infoboxes-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#infoboxes {
+  width:50vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
