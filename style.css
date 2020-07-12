@@ -5,16 +5,21 @@ body {
   color:black;
   font-family: Helvetica, sans-serif;
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 button {
-  font-size: 1.3em;
+  font-size: 1em;
+}
+
+h3 {
+  padding: 0px;
+  margin: 0px;
 }
 
 #titlebar {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   background-color: #6932a8;
   color:white;
 }
@@ -27,8 +32,59 @@ button {
 }
 
 #infoboxes {
-  width:50vw;
+  width:90vw;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.arrow {
+  font-size: 2em;
+  /* background-color: green; */
+  display: flex;
+  align-items: center;
+}
+
+.infobox {
+  background-color: #d0baf7;
+  padding: 10px;
+  /* border-style: solid; */
+}
+
+#radiobox {
+  text-align: left;
+}
+
+#option-columns {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.option {
+  background-color: #d0baf7;
+  position: absolute;
+  padding:15px;
+  width: 50vw;
+}
+
+.option>input {
+  width: 30vw;
+}
+
+
+#approve-start {
+  visibility: hidden;
+}
+#approve-chartfield {
+  visibility: hidden;
+}
+#approve-machine {
+  visibility: hidden;
+}
+#deny {
+  visibility: hidden;
 }
