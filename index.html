@@ -1,125 +1,110 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Service Order Mailer</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body>
-        <div id = "titlebar">
-          <h1>MakerSpace Service Order Mailer</h1>
-        </div>
-        <h2>First, enter some general information.</h2>
-        <div id = "infoboxes-wrapper">
-          <div id = "infoboxes">
-            <div class = "infobox">
-              <p>Your Name</p>
-              <input type="text" id="ta-name"></input>
-            </div>
-            <div class = "arrow"><span>&#8594;</span></div>
-            <div class = "infobox">
-              <p>Customer's Name</p>
-              <input type="text" id="name"></input>
-            </div>
-            <div class = "arrow"><span>&#8594;</span></div>
-            <div class = "infobox">
-              <p>Customer's NYU ID</p>
-              <input type="text" id="netid"></input>
-            </div>
-            <div class = "arrow"><span>&#8594;</span></div>
-            <div class = "infobox" id = "radiobox">
-              <input type="radio" id="approved" name="print" value="approved">
-              <label for="approved">Print Approved</label><br>
-              <input type="radio" id="denied" name="print" value="denied">
-              <label for="denied">Print Denied</label><br>
-              <input type="radio" id="completed" name="print" value="completed">
-              <label for="completed">Print Completed</label><br>
-            </div>
-            <div class = "arrow"><span>&#8594;</span></div>
-            <div class = "infobox" id = "radiobox">
-              <input type="radio" id="starting" name="status" value="starting">
-              <label for="starting">Starting Print</label><br>
-              <input type="radio" id="chartfield" name="status" value="chartfield">
-              <label for="chartfied">Needs Chartfield</label><br>
-              <input type="radio" id="machine-denied" name="status" value="machine-denied">
-              <label for="machine-denied">Machine Denied</label><br>
-            </div>
-            <div class = "arrow"><span>&#8594;</span></div>
-            <div class = "infobox">
-              <br>
-              <button onclick="nextStep()">Proceed to next step</button>
-            </div>
-          </div>
-        </div>
-        </br>
-        <hr>
-        <h2>Next, enter some details about the order.</h2>
-        <div id="option-columns">
-          <div class="option" id = "approve-start">
-            <h3>Print approved, starting print</h3>
-            <p>Cost of print:</p>
-            <input type="text" id="cost-2"></input>
-            <br><br>
-            <button onclick="approvedStart()">Generate Email</button>
-          </div>
-          <div class="option" id = "approve-chartfield">
-            <h3>Print approved, needs Chartfield</h3>
-            <p>Machine requested:</p>
-            <input type="text" id="machine-requested"></input>
-            <p>Cost of print:</p>
-            <input type="text" id="print-cost"></input>
-            <br><br>
-            <button onclick="approvedChartfield()">Generate Email</button>
-          </div>
-          <div class="option" id = "approve-machine">
-            <h3>Print approved, machine denied</h3>
-            <p>Machine requested:</p>
-            <input type="text" id="machine-requested-2"></input>
-            <p>Cost of requested machine:</p>
-            <input type="text" id="machine-requested-cost"></input>
-            <p>This machine is not recommended because...</p>
-            <input type="text" id="not-recommended-reason"></input>
-            <p>Machine recommended:</p>
-            <input type="text" id="machine-recommended"></input>
-            <p>Cost of recommended machine:</p>
-            <input type="text" id="machine-recommended-cost"></input>
-            <br><br>
-            <button onclick="approvedMachine()">Generate Email</button>
-          </div>
-          <div class="option" id = "deny">
-            <h3>Print denied</h3>
-            <p>Machine requested:</p>
-            <input type="text" id="machine-requested-3"></input>
-            <p>We denied your print because...</p>
-            <input type="text" id="problem"></input>
-            <p>Your problem can be fixed if you...</p>
-            <input type="text" id="fix"></input>
-            <br><br>
-            <button onclick="denied()">Generate Email</button>
-          </div>
-          <div class="option" id = "complete">
-            <h3>Print completed</h3>
-            <br><br>
-            <button onclick="completed()">Generate Email</button>
-          </div>
-          <!-- <div class="option">
-            <h3>Print approved, need Chartfield</h3>
-            <p>Lorem ipsum dolor sit amet construit. Lorem ipsum dolor sit amet construit. Lorem ipsum dolor sit amet construit. </p>
-          </div>
-          <div class="option">
-            <h3>Print approved, machine denied</h3>
-            <p>Lorem ipsum dolor sit amet construit. Lorem ipsum dolor sit amet construit. Lorem ipsum dolor sit amet construit. </p>
-          </div>
-          <div class="option">
-            <h3>Print denied</h3>
-            <p>Lorem ipsum dolor sit amet construit. Lorem ipsum dolor sit amet construit. Lorem ipsum dolor sit amet construit. </p>
-          </div> -->
-        </div>
-        <!-- <button onclick="option1()">Forgot to attach print file</button>
-        </br></br>
-        <button onclick="option2()">Ready for pickup!</button>
-        </br></br>
-        <button onclick="option3()">Cost was calculated</button> -->
 
-        <script type="text/javascript" src="script.js"></script>
-    </body>
+<head>
+  <title>Service Order Mailer</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <div id="titlebar">
+    <h1>MakerSpace Service Order Mailer</h1>
+  </div>
+  <h2>First, enter some general information.</h2>
+  <div id="infoboxes-wrapper">
+    <div id="infoboxes">
+      <div class="infobox">
+        <p>Your Name</p>
+        <input type="text" id="ta-name"></input>
+      </div>
+      <div class="arrow"><span>&#8594;</span></div>
+      <div class="infobox">
+        <p>Customer's Name</p>
+        <input type="text" id="name"></input>
+      </div>
+      <div class="arrow"><span>&#8594;</span></div>
+      <div class="infobox">
+        <p>Customer's NYU ID</p>
+        <input type="text" id="netid"></input>
+      </div>
+      <div class="arrow"><span>&#8594;</span></div>
+      <div class="infobox" id="radiobox">
+        <input type="radio" id="approved" name="print" value="approved">
+        <label for="approved">Print Approved</label><br>
+        <input type="radio" id="denied" name="print" value="denied">
+        <label for="denied">Print Denied</label><br>
+        <input type="radio" id="completed" name="print" value="completed">
+        <label for="completed">Print Completed</label><br>
+      </div>
+      <div class="arrow"><span>&#8594;</span></div>
+      <div class="infobox" id="radiobox">
+        <input type="radio" id="starting" name="status" value="starting">
+        <label for="starting">Starting Print</label><br>
+        <input type="radio" id="chartfield" name="status" value="chartfield">
+        <label for="chartfied">Needs Chartfield</label><br>
+        <input type="radio" id="machine-denied" name="status" value="machine-denied">
+        <label for="machine-denied">Machine Denied</label><br>
+      </div>
+      <div class="arrow"><span>&#8594;</span></div>
+      <div class="infobox">
+        <br>
+        <button onclick="nextStep()">Proceed to next step</button>
+      </div>
+    </div>
+  </div>
+  </br>
+  <hr>
+  <h2>Next, enter some details about the order.</h2>
+  <div id="option-columns">
+    <div class="option" id="approve-start">
+      <h3>Print approved, starting print</h3>
+      <p>Cost of print:</p>
+      <input type="text" id="cost-2"></input>
+      <br><br>
+      <button onclick="approvedStart()">Generate Email</button>
+    </div>
+    <div class="option" id="approve-chartfield">
+      <h3>Print approved, needs Chartfield</h3>
+      <p>Machine requested:</p>
+      <input type="text" id="machine-requested"></input>
+      <p>Cost of print:</p>
+      <input type="text" id="print-cost"></input>
+      <br><br>
+      <button onclick="approvedChartfield()">Generate Email</button>
+    </div>
+    <div class="option" id="approve-machine">
+      <h3>Print approved, machine denied</h3>
+      <p>Machine requested:</p>
+      <input type="text" id="machine-requested-2"></input>
+      <p>Cost of requested machine:</p>
+      <input type="text" id="machine-requested-cost"></input>
+      <p>This machine is not recommended because...</p>
+      <input type="text" id="not-recommended-reason"></input>
+      <p>Machine recommended:</p>
+      <input type="text" id="machine-recommended"></input>
+      <p>Cost of recommended machine:</p>
+      <input type="text" id="machine-recommended-cost"></input>
+      <br><br>
+      <button onclick="approvedMachine()">Generate Email</button>
+    </div>
+    <div class="option" id="deny">
+      <h3>Print denied</h3>
+      <p>Machine requested:</p>
+      <input type="text" id="machine-requested-3"></input>
+      <p>We denied your print because...</p>
+      <input type="text" id="problem"></input>
+      <p>Your problem can be fixed by...</p>
+      <input type="text" id="fix"></input>
+      <br><br>
+      <button onclick="denied()">Generate Email</button>
+    </div>
+    <div class="option" id="complete">
+      <h3>Print completed</h3>
+      <br><br>
+      <button onclick="completed()">Generate Email</button>
+    </div>
+  </div>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+
 </html>

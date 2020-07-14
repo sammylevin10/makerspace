@@ -2,7 +2,7 @@ body {
   padding: 0px;
   margin: 0px;
   background-color: #ddd4ff;
-  color:black;
+  color: black;
   font-family: Helvetica, sans-serif;
   text-align: center;
   font-size: 1em;
@@ -21,7 +21,7 @@ h3 {
   padding-top: 5px;
   padding-bottom: 5px;
   background-color: #6932a8;
-  color:white;
+  color: white;
 }
 
 #infoboxes-wrapper {
@@ -32,7 +32,7 @@ h3 {
 }
 
 #infoboxes {
-  width:90vw;
+  width: 90vw;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -68,24 +68,10 @@ h3 {
   background-color: #d0baf7;
   visibility: hidden;
   position: absolute;
-  padding:15px;
+  padding: 15px;
   width: 50vw;
 }
 
 .option>input {
   width: 30vw;
 }
-
-/*
-#approve-start {
-  visibility: hidden;
-}
-#approve-chartfield {
-  visibility: hidden;
-}
-#approve-machine {
-  visibility: hidden;
-}
-#deny {
-  visibility: hidden;
-} */
