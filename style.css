@@ -66,6 +66,7 @@ h3 {
 
 .option {
   background-color: #d0baf7;
+  visibility: hidden;
   position: absolute;
   padding:15px;
   width: 50vw;
@@ -75,7 +76,7 @@ h3 {
   width: 30vw;
 }
 
-
+/*
 #approve-start {
   visibility: hidden;
 }
@@ -87,4 +88,4 @@ h3 {
 }
 #deny {
   visibility: hidden;
-}
+} */

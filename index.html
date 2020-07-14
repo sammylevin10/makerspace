@@ -31,6 +31,8 @@
               <label for="approved">Print Approved</label><br>
               <input type="radio" id="denied" name="print" value="denied">
               <label for="denied">Print Denied</label><br>
+              <input type="radio" id="completed" name="print" value="completed">
+              <label for="completed">Print Completed</label><br>
             </div>
             <div class = "arrow"><span>&#8594;</span></div>
             <div class = "infobox" id = "radiobox">
@@ -54,7 +56,9 @@
         <div id="option-columns">
           <div class="option" id = "approve-start">
             <h3>Print approved, starting print</h3>
-            <br>
+            <p>Cost of print:</p>
+            <input type="text" id="cost-2"></input>
+            <br><br>
             <button onclick="approvedStart()">Generate Email</button>
           </div>
           <div class="option" id = "approve-chartfield">
@@ -91,6 +95,11 @@
             <input type="text" id="fix"></input>
             <br><br>
             <button onclick="denied()">Generate Email</button>
+          </div>
+          <div class="option" id = "complete">
+            <h3>Print completed</h3>
+            <br><br>
+            <button onclick="completed()">Generate Email</button>
           </div>
           <!-- <div class="option">
             <h3>Print approved, need Chartfield</h3>

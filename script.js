@@ -1,5 +1,6 @@
 function nextStep() {
   let denied = document.getElementById("denied").checked;
+  let completed = document.getElementById("completed").checked;
   let starting = document.getElementById("starting").checked;
   let chartfield = document.getElementById("chartfield").checked;
   let machineDenied = document.getElementById("machine-denied").checked;
@@ -8,31 +9,44 @@ function nextStep() {
     document.getElementById("approve-start").style.visibility = "hidden";
     document.getElementById("approve-chartfield").style.visibility = "hidden";
     document.getElementById("approve-machine").style.visibility = "hidden";
+    document.getElementById("complete").style.visibility = "hidden";
   }
   else if(starting) {
     document.getElementById("deny").style.visibility = "hidden";
     document.getElementById("approve-start").style.visibility = "visible";
     document.getElementById("approve-chartfield").style.visibility = "hidden";
     document.getElementById("approve-machine").style.visibility = "hidden";
+    document.getElementById("complete").style.visibility = "hidden";
   }
   else if(chartfield) {
     document.getElementById("deny").style.visibility = "hidden";
     document.getElementById("approve-start").style.visibility = "hidden";
     document.getElementById("approve-chartfield").style.visibility = "visible";
     document.getElementById("approve-machine").style.visibility = "hidden";
+    document.getElementById("complete").style.visibility = "hidden";
   }
   else if(machineDenied) {
     document.getElementById("deny").style.visibility = "hidden";
     document.getElementById("approve-start").style.visibility = "hidden";
     document.getElementById("approve-chartfield").style.visibility = "hidden";
     document.getElementById("approve-machine").style.visibility = "visible";
+    document.getElementById("complete").style.visibility = "hidden";
+  }
+  else if(completed) {
+    document.getElementById("deny").style.visibility = "hidden";
+    document.getElementById("approve-start").style.visibility = "hidden";
+    document.getElementById("approve-chartfield").style.visibility = "hidden";
+    document.getElementById("approve-machine").style.visibility = "hidden";
+    document.getElementById("complete").style.visibility = "visible";
   }
 }
 
 var mainLoopId = setInterval(function(){
   let denied = document.getElementById("denied").checked;
-  console.log(denied);
-  if(denied) {
+  let completed = document.getElementById("completed").checked;
+  // console.log(denied);
+  // console.log(completed);
+  if(denied || completed) {
     document.getElementById("starting").disabled = true;
     document.getElementById("chartfield").disabled = true;
     document.getElementById("machine-denied").disabled = true;
@@ -57,10 +71,12 @@ function getInfo() {
 }
 function approvedStart() {
   console.log("approvedStart");
+  var input = document.getElementById('cost-2');
+  cost = input.value;
   var info = getInfo();
   window.location.href = "mailto:" + info[0] +
   "?cc=tandon-makerspace@nyu.edu&subject=Your%20MakerSpace%20Service%20Order&body=Dear%20" + info[1] + "%0D%0A%0D%0A" +
-  "We%20have%20reviewed%20your%203D%20printing%20order%20and%20it%20has%20been%20approved%20to%20begin%20printing.%20Please%20look%20out%20for%20future%20updates%20on%20your%20part.%20%0A%0A" +
+  "We%20have%20reviewed%20your%203D%20printing%20order%20and%20it%20has%20been%20approved%20to%20begin%20printing.%20The%20cost%20of%20your%20print%20is%20%24" + cost + ".%20We%20will%20notify%20you%20when%20your%20print%20is%20ready%20for%20pickup.%0A%0A" +
   "Best%2C%0A" + info[2];
 }
 function approvedChartfield() {
@@ -105,5 +121,13 @@ function denied() {
   window.location.href = "mailto:" + info[0] +
   "?cc=tandon-makerspace@nyu.edu&subject=Your%20MakerSpace%20Service%20Order&body=Dear%20" + info[1] + "%0D%0A%0D%0A" +
   "We%20have%20reviewed%20your%203D%20printing%20order%20and%20it%20is%20not%20yet%20ready%20to%20be%20printed%20on%20" + machineRequested + ".%20The%20print%20had%20been%20denied%20because%20" + problem + "%2C%20and%20this%20could%20be%20fixed%20by%20" + fix + ".%20%0A%0A" +
+  "Best%2C%0A" + info[2];
+}
+function completed() {
+  console.log("completed");
+  var info = getInfo();
+  window.location.href = "mailto:" + info[0] +
+  "?cc=tandon-makerspace@nyu.edu&subject=Your%20MakerSpace%20Service%20Order&body=Dear%20" + info[1] + "%0D%0A%0D%0A" +
+  "Your%203D%20print%20is%20ready%20for%20pickup%20at%20the%20NYU%20MakerSpace%20at%206%20MetroTech%20Center.%20Please%20pick%20up%20your%20print%20between%20the%20hours%20of%2011AM%20and%202PM%20Tuesday-Friday.%20Your%20print%20is%20in%20a%20Ziploc%20bag%20labelled%20with%20your%20order%20specifications.%0A%0AIf%20you%20are%20unable%20to%20enter%206%20MetroTech%20Center%20or%20cannot%20pick%20up%20the%20print%20during%20our%20summer%20hours%2C%20please%20email%20tandon-makerspace%40nyu.edu%20to%20arrange%20for%20an%20alternative%20pickup%20method.%0A%0A" +
   "Best%2C%0A" + info[2];
 }
